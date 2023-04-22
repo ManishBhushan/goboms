@@ -1,4 +1,4 @@
-<!-- <?php
+<!-- <php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name = strip_tags(trim($_POST["name"]));
   $name = str_replace(array("\r","\n"),array(" "," "),$name);
@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $subject = str_replace(array("\r","\n"),array(" "," "),$subject);
   $message = trim($_POST["message"]);
   
-  $recipient = "n.manishbhushan@gmail.com";
+  $recipient = "info@goboms.com";
   $headers = "From: " . $name . " <" . $email . ">\r\n";
   $headers .= "Reply-To: " . $email . "\r\n";
   
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Set the recipient email address
-  $to = "n.manishbhushan@gmail.com";
+  $to = "info@goboms.com";
 
   // Set the email subject
   $subject = "New message from your website: $subject";
