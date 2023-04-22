@@ -1584,3 +1584,24 @@ background: #fc9222;
     display: inline;
   }
 }
+
+@media (max-width: 400px) {
+
+  /*padding: 30px 0;
+  height: 72px;*/
+
+
+  #header.header-scrolled #logo{
+    /*padding: 20px 0;
+    height: 90px;*/
+    margin-top: 0;
+  }
+
+  /*#header #logo {
+    margin-top: 0;
+  }*/
+
+  /*#header #logo img {
+    margin: -10px 0 10px 0;
+  }*/
+}
