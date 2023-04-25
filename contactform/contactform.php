@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Send the email
   if (mail($to, $subject, $email_message, $headers)) {
     http_response_code(200);
-    echo json_encode(array("message" => "Thank you for contacting us! We will get back to you as soon as possible!"));
+    echo "Thank you for contacting us! We will get back to you as soon as possible!";
   } else {
     http_response_code(400);
-    echo json_encode(array("message" => "There was an error sending your message! Please try again!"));
+    echo "There was an error sending your message! Please try again!";
   }
 
 } else {
   // If the form was not submitted, redirect to the homepage or show an error message.
-  header("Location: https://goboms.netlify.app/");
+  header("Location: https://goboms.com");
   exit;
 }
 
