@@ -1065,11 +1065,17 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 60px 0;
 }
 
-#clients img {
+/*#clients img {
   max-width: 100%;
   opacity: 0.5;
   transition: 0.3s;
   padding: 15px 0;
+}*/
+
+#clients img {
+  max-width: 100%;
+  transition: 0.3s;
+  padding: 15px;
 }
 
 #clients img:hover {

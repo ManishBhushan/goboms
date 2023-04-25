@@ -1,21 +1,3 @@
-<!-- <php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = strip_tags(trim($_POST["name"]));
-  $name = str_replace(array("\r","\n"),array(" "," "),$name);
-  $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-  $subject = strip_tags(trim($_POST["subject"]));
-  $subject = str_replace(array("\r","\n"),array(" "," "),$subject);
-  $message = trim($_POST["message"]);
-  
-  $recipient = "info@goboms.com";
-  $headers = "From: " . $name . " <" . $email . ">\r\n";
-  $headers .= "Reply-To: " . $email . "\r\n";
-  
-  mail($recipient, $subject, $message, $headers);
-}
-?> -->
-
-
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name = trim($_POST["name"]);
@@ -25,13 +7,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Check if all fields are filled
   if ($name == "" OR $email == "" OR $subject == "" OR $message == "") {
-    echo "All fields are required.";
+    http_response_code(400);
+    echo json_encode(array("message" => "All fields are required."));
     exit;
   }
 
   // Check if the email address is valid
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "Invalid email address.";
+    http_response_code(400);
+    echo json_encode(array("message" => "Invalid email address."));
     exit;
   }
 
@@ -53,15 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Send the email
   if (mail($to, $subject, $email_message, $headers)) {
-    echo "Your message has been sent. Thank you!";
+    http_response_code(200);
+    echo json_encode(array("message" => "Thank you for contacting us! We will get back to you as soon as possible!"));
   } else {
-    echo "Something went wrong. Please try again later.";
+    http_response_code(400);
+    echo json_encode(array("message" => "There was an error sending your message! Please try again!"));
   }
 
 } else {
   // If the form was not submitted, redirect to the homepage or show an error message.
   header("Location: https://goboms.netlify.app/");
   exit;
-
 }
-?>
+
