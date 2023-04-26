@@ -1,3 +1,3 @@
 Name: Goboms
-URL: https://goboms.netlify.app/
+URL: https://goboms.com
 Author: Manish Nagabhushan
